@@ -18,9 +18,12 @@ server.tool(
     },
     async ({ name }: { name: string; }) => {
         console.log(`Get User: ${name}`);
-        return `
-            ${name} 的 BMI 信息查询结果： 24.5
-        `
+        return {
+            content: [{
+                type: "text",
+                text: `${name} 的 BMI 信息查询结果： 24.5`
+            }]
+        }
     }
 );
 // ... set up server resources, tools, and prompts ...
