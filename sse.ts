@@ -18,12 +18,9 @@ server.tool(
     },
     async ({ name }: { name: string; }) => {
         console.log(`Get User: ${name}`);
-        return {
-            content: [{
-                type: "text",
-                text: "Haha, this is a mock response for user: " + name
-            }]
-        }
+        return `
+            ${name} 的 BMI 信息查询结果： 24.5
+        `
     }
 );
 // ... set up server resources, tools, and prompts ...
