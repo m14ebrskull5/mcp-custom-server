@@ -65,7 +65,7 @@ app.get('/sse', async (req, res) => {
     // Create SSE transport for legacy clients
     const transport = new SSEServerTransport('/messages', res);
     transports.sse[transport.sessionId] = transport;
-
+    console.info("transport.sessionId", transport.sessionId)
     res.on("close", () => {
         delete transports.sse[transport.sessionId];
     });
