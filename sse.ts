@@ -77,6 +77,12 @@ app.get('/sse', async (req, res) => {
 app.post('/messages', async (req, res) => {
     const sessionId = req.query.sessionId as string;
     const transport = transports.sse[sessionId];
+
+    // 打印请求的 header、query、body 信息
+    console.log('Headers:', req.headers);
+    console.log('Query:', req.query);
+    console.log('Body:', req.body);
+    
     if (transport) {
         await transport.handlePostMessage(req, res, req.body);
     } else {
